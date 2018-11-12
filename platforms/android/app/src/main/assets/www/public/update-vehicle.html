@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+        <title>Register Account : TecnoMapsM</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/helper.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+        <!--[if lt IE 9]>
+        <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+         <script type="text/javascript"> 
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                console.log(navigator.camera);
+            }
+            if (sessionStorage._id === undefined && sessionStorage.rol !== 'driver') {
+                alert('Error HTTP 401 Unauthorized');
+                location.href = './../index.html';
+            }
+            
+
+        </script>
+    </head>
+
+    <body class="">
+
+        <!-- Main wrapper  -->
+        <div id="main-wrapper">
+
+            <!-- Page wrapper  -->
+            <div class="">
+                <!-- Bread crumb -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-primary">TecnoMapsM</h3>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="javascript:void(0)">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">Vehicle</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- End Bread crumb -->
+                <!-- Container fluid  -->
+                <div class="container-fluid">
+                    <!-- Start Page Content -->
+                    <div class="row">
+                        <!-- Column -->
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs profile-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Settings</a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="home" role="tabpanel">
+                                        <div class="card-body">
+
+                                            <form action="" class="">
+                                                <hr>
+                                                <div class="col-lg-3 col-md-6 mx-auto">
+                                                    <input type="file" name="profile" id="profile" class="inputfile inputfile-5" data-multiple-caption="{count} archivos seleccionados"
+                                                           multiple />
+                                                    <label for="profile" style="text-align: center">
+                                                        <img src="./images/upload.png" class="img-circle" id="profile-img" width="150" height="150" alt="">
+                                                        <br>
+                                                        <p>Profile Photo</p>
+                                                        <br>
+                                                        <progress value="0" max="100" id="uploader-profile">0%</progress>
+                                                        <!-- <button type="button" name="profile" class="upload btn btn-primary btn-block m-b-10">Upload</button> -->
+                                                    </label>
+                                                </div>
+
+                                                <!-- End profile -->
+
+                                                <!-- Nav tabs -->
+                                                <ul class="nav nav-tabs profile-tab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Side Photos of the Vehicle</a>
+                                                    </li>
+                                                </ul>
+
+                                                <hr>
+                                                <div class="row" style="text-align: center">
+                                                    <div class="col-lg-3 col-md-6">
+                                                        <!--input  type="file" name="left" id="left" class="inputfile inputfile-6" data-multiple-caption="{count} archivos seleccionados"
+                                                            multiple /-->
+                                                        <label for="left">
+                                                            <img onclick="cameraPhoto('left')" src="./images/vehicle-left.png" id="left-img" width="150" height="120" alt="">
+                                                            <br>
+                                                            <p>Photo Left</p>
+                                                            <br>
+                                                            <progress value="0" max="100" id="uploader-left">0%</progress>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-lg-3 col-md-6 m-b-20">
+                                                       
+                                                        <label for="right">
+                                                            <img src="./images/vehicle-right.png"onclick="cameraPhoto('right')"  id="right-img" width="150" height="120" alt="">
+                                                            <br>
+                                                            <p>Photo Right</p>
+                                                            <br>
+                                                            <progress value="0" max="100" id="uploader-right">0%</progress>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <!-- End Side Photos -->
+
+                                                <!-- Nav tabs -->
+                                                <ul class="nav nav-tabs profile-tab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Front and Rear Photo of the Vehicle</a>
+                                                    </li>
+                                                </ul>
+                                                <hr>
+                                                <div class="row" style="text-align: center">
+                                                    <div class="col-lg-3 col-md-12">
+                                                       
+                                                        <label for="front">
+                                                            <img src="./images/vehicle-front.png"onclick="cameraPhoto('front')"  id="front-img" width="150" height="120" alt="">
+                                                            <br>
+                                                            <p>Photo Front</p>
+                                                            <br>
+                                                            <progress value="0" max="100" id="uploader-front">0%</progress>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-6 m-b-20">
+                                                       
+                                                        <label for="rear">
+                                                            <img src="./images/vehicle-rear.png" onclick="cameraPhoto('rear')" id="rear-img" width="150" height="120" alt="">
+                                                            <br>
+                                                            <p>Photo Rear</p>
+                                                            <br>
+                                                            <progress value="0" max="100" id="uploader-rear">0%</progress>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <button type="button" id="update" class="btn btn-primary btn-block m-b-10">
+                                                    Update
+                                                </button>
+                                                <a href="./idvehicle.html"></a>
+                                                <button type="button" class="btn bg-theme btn-block m-b-10"> Go Back </button>
+                                                </a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script>
+                                                                // Initialize Firebase
+                                                                var config = {
+                                                                    apiKey: "AIzaSyCzh425UnifQWqJkPKzEFiinJP8W24qqmg",
+                                                                    authDomain: "tecnomapsm-d88b2.firebaseapp.com",
+                                                                    databaseURL: "https://tecnomapsm-d88b2.firebaseio.com",
+                                                                    projectId: "tecnomapsm-d88b2",
+                                                                    storageBucket: "tecnomapsm-d88b2.appspot.com",
+                                                                    messagingSenderId: "751892748346"
+                                                                };
+                                                                firebase.initializeApp(config);
+    </script>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
+
+    <!--Custom JavaScript -->
+    <script src="js/vehicle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Location User: TecnoMapsM</title>
+  <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="css/helper.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/location.css">
+  <script>
+    if (sessionStorage._id === undefined && sessionStorage.rol !== 'user') {
+      alert('Error HTTP 401 Unauthorized');
+      location.href = './../index.html';
+    }
+  </script>
+</head>
+
+<body>
+  <div class="input-group">
+    <select class="custom-select" id="destination">
+    </select>
+    <div class="input-group-prepend bg-primary-dark">
+      <label class="input-group-text bg-primary-dark" for="destination" id="dest">Destination</label>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="info" id="info" hidden>
+
+    <div class="alert alert-success" role="alert">
+      <h6 class="">Cuenta con un viaje cuando quieras!</h6>
+      <div id="message-run">
+
+      </div>
+      <hr>
+      <button id="solicitar" type="button" class="btn btn-success">Solicitar Servicio</button>
+      <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
+    </div>
+
+  </div>
+  <div id="warnings-panel" hidden></div>
+  <script src="js/lib/jquery/jquery.min.js"></script>
+  <script src="js/lib/socket/socket.io.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="js/lib/bootstrap/js/popper.min.js"></script>
+  <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./js/locationuser.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjnOuJAT_q_fIazAnOrv32z51IU9Rp3kQ&callback=initMap">
+  </script>
+</body>
+
+</html>

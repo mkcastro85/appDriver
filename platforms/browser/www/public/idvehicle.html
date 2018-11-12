@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tecnomapsm</title>
+    <link href="./css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script>
+        if (sessionStorage._id === undefined && sessionStorage.rol !== 'driver') {
+            alert('Error HTTP 401 Unauthorized');
+            location.href = './../index.html';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <p>Select the vehicle to be used</p>
+        <div id="id-vehicles"></div>
+
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#id-vehicles').html(`<a href="./update-vehicle.html"><button type="button" class="btn btn-primary btn-block m-b-10">${sessionStorage.id_motorcycle}</button></a>`);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <title>Register Account : TecnoMapsM</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/helper.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <script>
+        if (sessionStorage._id === undefined && sessionStorage.rol !== 'driver') {
+            alert('Error HTTP 401 Unauthorized');
+            location.href = './../index.html';
+        }
+    </script>
+</head>
+
+<body class="fix-header fix-sidebar">
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">TecnoMapsM</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Vehicle</li>
+                    <li class="breadcrumb-item active">Active Run</li>
+                </ol>
+            </div>
+        </div>
+        <!-- End Bread crumb -->
+        <!-- Container fluid  -->
+        <div class="container-fluid">
+            <!-- Start Page Content -->
+            <div class="row">
+                <!-- Column -->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home" role="tabpanel">
+                                <div class="card-body">
+
+                                    <form action="" class="">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 m-b-20" style="text-align: center">
+                                                    <label for="profile" style="text-align: center">
+                                                        <img src="./images/upload.png" class="img-circle" id="profile-img" width="150" height="150" alt="">
+                                                        <br>
+                                                        <p>Profile Photo</p>
+                                                    </label>
+                                                    <br>
+                                                    <div class="btn-group btn-group-toggle mx-auto" id="element-run" style="text-align: center" data-toggle="buttons">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+
+        <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCzh425UnifQWqJkPKzEFiinJP8W24qqmg",
+            authDomain: "tecnomapsm-d88b2.firebaseapp.com",
+            databaseURL: "https://tecnomapsm-d88b2.firebaseio.com",
+            projectId: "tecnomapsm-d88b2",
+            storageBucket: "tecnomapsm-d88b2.appspot.com",
+            messagingSenderId: "751892748346"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/activerun.js"></script>
+</body>
+
+</html>
