@@ -104,22 +104,22 @@ MERGED from [:CordovaLib] /home/rcarrascal/Documentos/proyectos/Sistemas Distrib
 		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:16:42-71
 	android:minSdkVersion
 		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:16:15-41
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:17:5-81
 	android:name
 		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:17:22-78
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:18:5-81
+	android:name
+		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:18:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:18:5-79
+ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:19:5-79
 	android:name
-		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:18:22-76
+		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:19:22-76
 uses-feature#android.hardware.location.gps
-ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:19:5-66
+ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:19:19-63
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:20:5-81
-	android:name
-		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:20:22-78
+		ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:20:19-63
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /home/rcarrascal/Documentos/proyectos/Sistemas Distribuidos/appDriver/platforms/android/app/src/main/AndroidManifest.xml:13:13-123
 	android:resource

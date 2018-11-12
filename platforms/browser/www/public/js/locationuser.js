@@ -6,14 +6,14 @@ var positionUser = {
     lng: 0
 };
 
-var socket = io.connect('http://localhost:3000', { 'forceNew': true });
+var socket = io.connect('http://apidrivers.herokuapp.com', { 'forceNew': true });
 //var socket = io.connect('https://tecnomapsm.herokuapp.com', { 'forceNew': true });
 
 
 function retrievePlace() {
     $.ajax({
        // url: `https://tecnomapsm.herokuapp.com/users/place`,
-        url: `http://localhost:3000/users/place`,
+        url: `http://apidrivers.herokuapp.com/users/place`,
         method: 'GET',
         dataType: 'JSON',
         success: function (result) {

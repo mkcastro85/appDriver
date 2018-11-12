@@ -13,10 +13,13 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.app.tecnomaps"
     },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.app.tecnomaps"
+    },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.app.tecnomaps"
     },
-    "cordova-plugin-camera": {
+    "cordova-plugin-device": {
       "PACKAGE_NAME": "com.app.tecnomaps"
     }
   },

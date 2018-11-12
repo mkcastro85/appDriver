@@ -11,7 +11,7 @@ function updateVehicle(vehicle) {
 
     $.ajax({
         //url: `https://tecnomapsm.herokuapp.com/users/vehicle/${sessionStorage._id}`,
-        url: `http://192.168.1.6:3000/users/vehicle/${sessionStorage._id}`,
+        url: `http://apidrivers.herokuapp.com/users/vehicle/${sessionStorage._id}`,
         method: 'PUT',
         data: {left, right, front, rear},
         dataType: 'JSON',

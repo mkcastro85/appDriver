@@ -1,9 +1,10 @@
 function createAnAccount() {
     console.log("Crear cuenta");
-    $('#message').html("en proceso");
+    $("#message").html("en proceso");
+   
     $.ajax({
        // url: 'https://tecnomapsm.herokuapp.com/users/sign-up',
-        url: 'http://localhost:3000/users/sign-up',
+        url: 'http://apidrivers.herokuapp.com/users/sign-up',
         method: 'POST',
         data: $('#form-create-an-account').serialize(),
         dataType: 'JSON',
@@ -15,7 +16,8 @@ function createAnAccount() {
             }, 5000);
         },
         error: function(jqXHR, textStatus){
-            $('#message').html(jqXHR);
+            console.log(textStatus);
+            $('#message').html("Error");
         }
     });
 }
@@ -23,7 +25,7 @@ function createAnAccount() {
 function logon() {
     $.ajax({
         //url: 'https://tecnomapsm.herokuapp.com/users/sign-in',
-        url: 'http://localhost:3000/users/sign-in',
+        url: 'http://apidrivers.herokuapp.com/users/sign-in',
         method: 'POST',
         data: $('#form-logon').serialize(),
         dataType: 'JSON',

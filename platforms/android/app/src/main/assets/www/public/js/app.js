@@ -4,7 +4,7 @@ function createAnAccount() {
    
     $.ajax({
        // url: 'https://tecnomapsm.herokuapp.com/users/sign-up',
-        url: 'http://192.168.1.6:3000/users/sign-up',
+        url: 'http://apidrivers.herokuapp.com/users/sign-up',
         method: 'POST',
         data: $('#form-create-an-account').serialize(),
         dataType: 'JSON',
@@ -25,7 +25,7 @@ function createAnAccount() {
 function logon() {
     $.ajax({
         //url: 'https://tecnomapsm.herokuapp.com/users/sign-in',
-        url: 'http://192.168.1.6:3000/users/sign-in',
+        url: 'http://apidrivers.herokuapp.com/users/sign-in',
         method: 'POST',
         data: $('#form-logon').serialize(),
         dataType: 'JSON',
