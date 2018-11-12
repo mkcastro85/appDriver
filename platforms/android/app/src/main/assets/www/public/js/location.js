@@ -72,7 +72,7 @@ function initialize(actualPosition) {
                 position: actualPosition,
                 map: map,
                 title: "Latitude:" + actualPosition.lat + " | Longitude:" + actualPosition.lng,
-                icon: url + '/public/images/moto-icon-active.png'
+                //icon: url + '/public/images/moto-icon-active.png'
             });
         } else {
             marker = new google.maps.Marker({
