@@ -1,18 +1,19 @@
 const url = window.location.origin;
 var places = [];
 var originRun = '';
+var driver='';
 var positionUser = {
     last: 0,
     lng: 0
 };
 
-var socket = io.connect('http://apidrivers.herokuapp.com', { 'forceNew': true });
+var socket = io.connect('http://apidrivers.herokuapp.com', {'forceNew': true});
 //var socket = io.connect('https://tecnomapsm.herokuapp.com', { 'forceNew': true });
 
 
 function retrievePlace() {
     $.ajax({
-       // url: `https://tecnomapsm.herokuapp.com/users/place`,
+        // url: `https://tecnomapsm.herokuapp.com/users/place`,
         url: `http://apidrivers.herokuapp.com/users/place`,
         method: 'GET',
         dataType: 'JSON',
@@ -44,7 +45,7 @@ function onSuccessU(position) {
 //
 function onErrorU(error) {
     alert('code: ' + error.code + '\n' +
-        'message: ' + error.message + '\n');
+            'message: ' + error.message + '\n');
 }
 
 function startRun() {
@@ -73,12 +74,12 @@ function initMap() {
     // Crea un mapa y céntralo en Manhattan.
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 20,
-        center: { lat: 10.3931341, lng: -75.4877889 },
+        center: {lat: 10.3931341, lng: -75.4877889},
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     // Crea un procesador de direcciones y lézalo al mapa.
-    var directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
+    var directionsDisplay = new google.maps.DirectionsRenderer({map: map});
 
     // Crea una instancia de una ventana de información para contener el texto del paso.
     var stepDisplay = new google.maps.InfoWindow;
@@ -88,12 +89,12 @@ function initMap() {
     // Escuche para cambiar eventos de las listas de inicio y final.
     var onChangeHandler = function () {
         calculateAndDisplayRoute(
-            directionsDisplay, directionsService, markerArray, stepDisplay, map);
+                directionsDisplay, directionsService, markerArray, stepDisplay, map);
     };
 
     var onClickRun = function () {
         calculateAndDisplayRoute(
-            directionsDisplay, directionsService, markerArray, stepDisplay, map);
+                directionsDisplay, directionsService, markerArray, stepDisplay, map);
     }
 
     document.getElementById('dest').addEventListener('click', function () {
@@ -105,7 +106,7 @@ function initMap() {
 
 
 function calculateAndDisplayRoute(directionsDisplay, directionsService,
-    markerArray, stepDisplay, map) {
+        markerArray, stepDisplay, map) {
     // Primero, elimine todos los marcadores existentes del mapa.
     for (var i = 0; i < markerArray.length; i++) {
         markerArray[i].setMap(null);
@@ -123,7 +124,7 @@ function calculateAndDisplayRoute(directionsDisplay, directionsService,
         // marcadores para cada paso.
         if (status === 'OK') {
             document.getElementById('warnings-panel').innerHTML =
-                '<b>' + response.routes[0].warnings + '</b>';
+                    '<b>' + response.routes[0].warnings + '</b>';
             directionsDisplay.setDirections(response);
             showSteps(response, markerArray, stepDisplay, map);
         } else {
@@ -144,7 +145,7 @@ function showSteps(directionResult, markerArray, stepDisplay, map) {
             marker.setMap(map);
             marker.setPosition(myRoute.steps[i].start_location);
             attachInstructionText(
-                stepDisplay, marker, myRoute.steps[i].instructions, map);
+                    stepDisplay, marker, myRoute.steps[i].instructions, map);
         }
 
     }
@@ -177,10 +178,14 @@ function restInfo() {
 }
 
 window.onload = function () {
+    document.getElementById('stars').setAttribute('hidden', true);
+
     retrievePlace();
     document.getElementById('solicitar').addEventListener('click', solicitarVehicle);
 
     $('#destination').on('change', restInfo);
+
+    $('#calificar').on('click', calificarViaje);
 
     socket.on('driverAcepto', function (data) {
         if (data._id === sessionStorage._id) {
@@ -193,17 +198,91 @@ window.onload = function () {
             <div>
             `;
             document.getElementById('message-run').innerHTML = message;
-            let latlng = new google.maps.LatLng( data.location);
+            let latlng = new google.maps.LatLng(data.location);
 
             console.log(latlng);
             console.log('-----');
             console.log(data.location);
             /*marker = new google.maps.Marker({
-                position:latlng,
-                map: map,
-                icon: url + '/public/images/moto-icon-active.png'
-            });*/
+             position:latlng,
+             map: map,
+             icon: url + '/public/images/moto-icon-active.png'
+             });*/
+        }
+    });
+
+    socket.on('driverTermina', function (data) {
+        if (data.description === "terminado") {
+            driver=data.id;
+            var message = ``;
+            document.getElementById('message-run').innerHTML = message;
+            document.getElementById('solicitar').removeAttribute('hidden');
+            document.getElementById('info').removeAttribute('hidden');
+
+            document.getElementById('solicitar').setAttribute('hidden', true);
+            document.getElementById('cancelar').setAttribute('hidden', true);
+
+
+            document.getElementById('stars').removeAttribute('hidden');
+
+
+            let latlng = new google.maps.LatLng(data.location);
+
+            console.log(latlng);
+            console.log('-----');
+            console.log(data.location);
+            /*marker = new google.maps.Marker({
+             position:latlng,
+             map: map,
+             icon: url + '/public/images/moto-icon-active.png'
+             });*/
         }
     });
 
 }
+
+
+function calificarViaje() {
+    $('#element-run').html("");
+    document.getElementById('stars').setAttribute('hidden', true);
+    document.getElementById('info').setAttribute('hidden', true);
+     document.getElementById('solicitar').removeAttribute('hidden');
+     document.getElementById('cancelar').removeAttribute('hidden');
+     var valor=document.getElementById('calvalue').value;
+    $("#element-run").show();
+
+    $.ajax({
+        //url: 'https://tecnomapsm.herokuapp.com/users/sign-in',
+        url: 'http://apidrivers.herokuapp.com/users/calificar/' + driver,
+        method: 'PUT',
+        data: {calificar: valor},
+        dataType: 'JSON',
+        success: function (result) {
+            alert("Calificacion enviada con exito");
+        },
+        error: function (jqXHR, textStatus) {
+            console.log(jqXHR);
+        }
+    });
+}
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function () {
+    return $star_rating.each(function () {
+        if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+            return $(this).removeClass('fa-star-o').addClass('fa-star');
+        } else {
+            return $(this).removeClass('fa-star').addClass('fa-star-o');
+        }
+    });
+};
+
+
+
+SetRatingStar();
+
+$star_rating.on('click', function () {
+    $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+    return SetRatingStar();
+});
+

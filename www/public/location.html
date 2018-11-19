@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Location : TecnoMapsM</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="css/helper.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/location.css">
-    <script>
-        if (sessionStorage._id === undefined && sessionStorage.rol !== 'driver') {
-            alert('Error HTTP 401 Unauthorized');
-            location.href = './../index.html';
-        }
-    </script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Location : TecnoMapsM</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="css/helper.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/location.css">
+        <script>
+            if (sessionStorage._id === undefined && sessionStorage.rol !== 'driver') {
+                alert('Error HTTP 401 Unauthorized');
+                location.href = './../index.html';
+            }
+        </script>
+    </head>
 
-<body>
-    <div id="active-run" class="m-t-5">
-        <div class="btn-group btn-group-toggle mx-auto" id="element-run" data-toggle="buttons">
+    <body>
+        <div id="active-run" class="m-t-5">
+            <div class="btn-group btn-group-toggle mx-auto" id="element-run" data-toggle="buttons">
 
+            </div>
         </div>
-    </div>
-    <div id="mapCanvas"></div>
-    <div id="info" class="alert alert-success" role="alert" hidden>
-        <h6 class="">Cuenta con un nuevo cliente!</h6>
-        <div id="message-run">
+        <div id="mapCanvas"></div>
+        <div id="info" class="alert alert-success" role="alert" hidden>
+            <h6 class="">Cuenta con un nuevo cliente!</h6>
+            <div id="message-run">
 
+            </div>
+            
+            <hr>
+            <button id="aceptar" type="button" class="btn btn-success">Aceptar Servicio</button>
+            <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
+
+            <button id="iniciarviaje" type="button" class="btn btn-success">Iniciar Viaje</button>
+
+            <button id="terminarviaje" type="button" class="btn btn-success">Terminar Viaje</button>
         </div>
-        <hr>
-        <button id="aceptar" type="button" class="btn btn-success">Aceptar Servicio</button>
-        <button id="cancelar" type="button" class="btn btn-danger">Cancelar</button>
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBafo1cwrwWgJEH3nOhwQ21exGM2OHuqNc"></script>
-    <script src="js/lib/jquery/jquery.min.js"></script>
-    <script src="js/lib/socket/socket.io.js"></script>
-    <script type="text/javascript" src="../cordova.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="js/lib/bootstrap/js/popper.min.js"></script>
-    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./js/location.js"></script>
-    
-</body>
+        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBafo1cwrwWgJEH3nOhwQ21exGM2OHuqNc"></script>
+        <script src="js/lib/jquery/jquery.min.js"></script>
+        <script src="js/lib/socket/socket.io.js"></script>
+        <script type="text/javascript" src="../cordova.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="js/lib/bootstrap/js/popper.min.js"></script>
+        <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./js/location.js"></script>
+
+    </body>
 
 </html>
